@@ -6,7 +6,7 @@
       "content_scripts": [ {
         "css": [ "main.css" ],
         "js": [ "index.js" ],
-        "matches": [ "http://*/*" ]
+        "matches": [ "<all_urls>" ]
       } ],
     "web_accessible_resources": [{
     "resources": ["resources/*"],
