@@ -7,9 +7,9 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 chrome.contextMenus.onClicked.addListener(function (info, tab) {
-  baseURL = "google.com";
-  var newURL = baseURL + info.selectionText;
-  chrome.tabs.create({ url: newURL });
+  baseURL =
+    "chrome-extension://emagmdgbjeimmchcccaahcfbgdkjaolb/dist/report/form.html";
+  chrome.tabs.create({ url: baseURL });
 });
 
 chrome.runtime.onMessage.addListener(function (message, sender) {
