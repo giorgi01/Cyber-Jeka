@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Cyberdoge - Leaderboard </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <meta nickname="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald|Overpass+Mono&amp;display=swap'><link rel="stylesheet" href="./style.css">
-
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -55,7 +54,168 @@
     </div>
   </div>
 </div>
-<script  src="./script.js"></script>
+<script src="../../jquery-3.5.1.js"></script>
+<script>
+  console.clear();
+
+let team = [
+  {
+    rank: 1,
+    nickname: "გიორგი გიორგაძე",
+    clanname: "Uchiha Clan",
+    img: "https://pbs.twimg.com/profile_images/1391860867742961671/PdaUeMH1_400x400.png",
+    rating: 36,
+    sent: 31,
+  },
+  {
+    rank: 2,
+    nickname: "Kimi Raikkonen",
+    clanname: "GeorgianClan",
+    img: "https://pbs.twimg.com/profile_images/1391860867742961671/PdaUeMH1_400x400.png",
+    rating: 31,
+    sent: 21,
+  },
+  {
+    rank: 3,
+    nickname: "Sebastian Vettel",
+    clanname: "კიბერძაღლუკები",
+    img: "https://pbs.twimg.com/profile_images/1391860867742961671/PdaUeMH1_400x400.png",
+    rating: 24,
+    sent: 7,
+  },
+  {
+    rank: 4,
+    nickname: "Max Verstappen",
+     clanname: "კეთილები",
+    img: "https://pbs.twimg.com/profile_images/1391860867742961671/PdaUeMH1_400x400.png",
+    rating: 22,
+    sent: 4,
+  },
+  {
+    rank: 5,
+    nickname: "Lando Norris",
+    clanname: "ძაღლობა",
+    img: "https://pbs.twimg.com/profile_images/1391860867742961671/PdaUeMH1_400x400.png",
+    rating: 18,
+    sent: 16,
+  },
+  {
+    rank: 6,
+    nickname: "Charles Leclerc",
+    clanname: "BesTCLANN",
+    img: "https://pbs.twimg.com/profile_images/1391860867742961671/PdaUeMH1_400x400.png",
+    rating: 16,
+    sent: 6,
+  },
+  {
+    rank: 7,
+    nickname: "George Russell",
+    clanname: "georgerussell63",
+    img: "https://pbs.twimg.com/profile_images/1391860867742961671/PdaUeMH1_400x400.png",
+    rating: 10,
+    sent: 21,
+  },
+  {
+    rank: 8,
+    nickname: "ივანე მაჩაბელი",
+    clanname: "კიბერძაღლუკები",
+    img: "https://pbs.twimg.com/profile_images/1391860867742961671/PdaUeMH1_400x400.png",
+    rating: 7,
+    sent: 46,
+  },
+  {
+    rank: 9,
+    nickname: "Alexander Albon",
+    clanname: "alex_albon",
+    img: "https://pbs.twimg.com/profile_images/1391860867742961671/PdaUeMH1_400x400.png",
+    rating: 4,
+    sent: 2,
+  },
+  {
+    rank: 10,
+    nickname: "Carlos Sainz Jr.",
+    clanname: "carlossainz55",
+    img: "https://pbs.twimg.com/profile_images/1391860867742961671/PdaUeMH1_400x400.png",
+    rating: 1,
+    sent: 24,
+  },
+];
+
+$.ajax({
+  url: "http://localhost:55286/users",
+  type: "GET",
+  dataType: "json", // added data type
+  success: function (res) {
+    for (var i = 0; i < res.length; i++) {
+      team.push({rank: i+1, nickname: res[i].nickname, clanname: res[i].clanName, img: "https://pbs.twimg.com/profile_images/1391860867742961671/PdaUeMH1_400x400.png", rating: res[i].rating, sent: 1})
+    }
+},
+});
+
+
+const randomEmoji = () => {
+  const emojis = ["👏", "👍", "🙌", "🤩", "🔥", "⭐️", "🏆", "💯"];
+  let randomNumber = Math.floor(Math.random() * emojis.length);
+  return emojis[randomNumber];
+};
+
+console.log(team)
+for (let i = 0; i < team.length; i++) {
+  console.log(team[i])
+  let newRow = document.createElement("li");
+  newRow.classList = "c-list__item";
+  newRow.innerHTML = `
+		<div class="c-list__grid">
+			<div class="c-flag c-place u-bg--transparent">${team[i].rank}</div>
+			<div class="c-media">
+				<img class="c-avatar c-media__img" src="${team[i].img}" />
+				<div class="c-media__content">
+					<div class="c-media__title">${team[i].nickname}</div>
+					<a class="c-media__link u-text--small" href="https:///${
+            team[i].clanname
+          }" target="_blank">@${team[i].clanname}</a>
+				</div>
+			</div>
+			<div class="u-text--right c-rating">
+				<div class="u-mt--8">
+					<strong>${team[i].rating}</strong> ${randomEmoji()}
+				</div>
+			</div>
+		</div>
+	`;
+  if (team[i].rank === 1) {
+    newRow.querySelector(".c-place").classList.add("u-text--dark");
+    newRow.querySelector(".c-place").classList.add("u-bg--yellow");
+    newRow.querySelector(".c-rating").classList.add("u-text--yellow");
+  } else if (team[i].rank === 2) {
+    newRow.querySelector(".c-place").classList.add("u-text--dark");
+    newRow.querySelector(".c-place").classList.add("u-bg--teal");
+    newRow.querySelector(".c-rating").classList.add("u-text--teal");
+  } else if (team[i].rank === 3) {
+    newRow.querySelector(".c-place").classList.add("u-text--dark");
+    newRow.querySelector(".c-place").classList.add("u-bg--orange");
+    newRow.querySelector(".c-rating").classList.add("u-text--orange");
+  }
+  list.appendChild(newRow);
+}
+
+team.forEach((member) => {
+});
+
+// Find Winner from sent rating by sorting the drivers in the team array
+let sortedTeam = team.sort((a, b) => b.sent - a.sent);
+let winner = sortedTeam[0];
+
+// Render winner card
+const winnerCard = document.getElementById("winner");
+winnerCard.innerHTML = `
+	<div class="u-text-small u-text--medium u-mb--16">კვირის დეტექტივი</div>
+	<img class="c-avatar c-avatar--lg" src="${winner.img}"/>
+	<h3 class="u-mt--16">${winner.nickname}</h3>
+	<span class="u-text--teal u-text--small">${winner.clanname}</span>
+`;
+
+</script>
 <!-- partial -->
 
 </body>

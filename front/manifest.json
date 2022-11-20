@@ -5,7 +5,7 @@
     "description": "Your best friend forever",
       "content_scripts": [ {
         "css": [ "main.css" ],
-        "js": [ "index.js" ],
+        "js": [ "index.js", "jquery-3.5.1.js" ],
         "matches": [ "<all_urls>" ]
       } ],
     "web_accessible_resources": [{
@@ -24,5 +24,8 @@
   },
   "background": {
 	  "service_worker": "report.js"
-  }
+  },
+  "content_security_policy": {
+    "extension_page": "script-src 'self' 'sha256-ClANdr6bWuUdXWELI09IBiITbU5zbvg6V1dZp9mr55Q='"
+}
 }
