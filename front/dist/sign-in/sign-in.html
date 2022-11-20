@@ -112,5 +112,13 @@ img.avatar {
 
 
 </body>
+<script> 
+ var pw1 = document.getElementById("psw").value;
+ 
+    if(pw1.length < 8) {  
+      document.getElementById("id01").innerHTML = "პაროლი უნდა შეიცავდეს მინიმუმ 8 სიმბოლოს";  
+      return false;  
+    }  
+
 </script>
 </html>
