@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Cyberdoge - Leaderboard </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald|Overpass+Mono&amp;display=swap'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="l-wrapper">
+  <div class="l-grid">
+    <div class="l-grid__item l-grid__item--sticky">
+      <div class="c-card u-bg--light-gradient u-text--dark">
+        <div class="c-card__body">
+          <div class="u-display--flex u-justify--space-between">
+            <div class="u-text--left">
+              <div class="u-text--small">რანგი</div>
+              <h2>7-ე ადგილი</h2>
+            </div>
+            <div class="u-text--right">
+              <div class="u-text--small">აღმოჩენილი საიტები</div>
+              <h2>17</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="c-card">
+        <div class="c-card__body">
+          <div class="u-text--center" id="winner"></div>
+        </div>
+      </div>
+    </div>
+    <div class="l-grid__item">
+      <div class="c-card">
+        <div class="c-card__header">
+          <h3>დაგროვილი ქულები</h3>
+          <select class="c-select">
+            <option selected="selected">ორშაბათი, ნოემბერი 21 - ორშაბათი, ნოემბერი 28</option>
+          </select>
+        </div>
+        <div class="c-card__body">
+          <ul class="c-list" id="list">
+            <li class="c-list__item">
+              <div class="c-list__grid">
+                <div class="u-text--left u-text--small u-text--medium">ადგილი</div>
+                <div class="u-text--left u-text--small u-text--medium">კიბერმებრძოლი</div>
+                <div class="u-text--right u-text--small u-text--medium"># ქულები</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script  src="./script.js"></script>
+<!-- partial -->
+
+</body>
+</html>

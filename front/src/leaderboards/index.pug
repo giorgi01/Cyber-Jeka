@@ -1,0 +1,31 @@
+.l-wrapper
+	.c-header
+		img.c-logo(src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/813538/km-logo-color.svg" draggable="false")
+		button.c-button.c-button--primary Send Kudos
+	.l-grid
+		.l-grid__item.l-grid__item--sticky
+			.c-card.u-bg--light-gradient.u-text--dark
+				.c-card__body
+					.u-display--flex.u-justify--space-between
+						.u-text--left
+							.u-text--small My Rank
+							h2 3rd Place
+						.u-text--right
+							.u-text--small My Score
+							h2 24
+			.c-card
+				.c-card__body
+					.u-text--center#winner
+		.l-grid__item
+			.c-card
+				.c-card__header
+					h3 Received Kudos
+					select.c-select
+						option(selected) Sunday, Feb. 23 - Sunday, Feb. 30
+				.c-card__body
+					ul.c-list#list
+						li.c-list__item
+							.c-list__grid
+								.u-text--left.u-text--small.u-text--medium Rank
+								.u-text--left.u-text--small.u-text--medium Team Member
+								.u-text--right.u-text--small.u-text--medium # of Kudos

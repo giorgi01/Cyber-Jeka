@@ -1,0 +1,28 @@
+{
+    "name": "CyberDoge",
+    "manifest_version": 3,
+    "version": "1.0.0",
+    "description": "Your best friend forever",
+      "content_scripts": [ {
+        "css": [ "main.css" ],
+        "js": [ "index.js" ],
+        "matches": [ "http://*/*" ]
+      } ],
+    "web_accessible_resources": [{
+    "resources": ["resources/*"],
+    "matches": ["<all_urls>"]
+  }],
+  "permissions": [ "activeTab", "contextMenus" ],
+  "action": {
+    "default_popup": "dist/normal/index.html"
+  },
+  "icons": {
+    "16": "resources/doggo.png",
+    "32": "resources/doggo.png",
+    "48": "resources/doggo.png",
+    "128": "resources/doggo.png"
+  },
+  "background": {
+	  "service_worker": "report.js"
+  }
+}
